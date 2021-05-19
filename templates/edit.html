@@ -1,0 +1,63 @@
+{% extends "tweets.html" %}
+{% load static %}
+{% load cloudinary %}
+{% block content %}
+
+
+
+<div class="container">
+        
+    <div class="main">
+        <div class="main-header">
+            <img src="{% static 'img/sakura-pp.png' %}" width="80" height="80">
+            <h1>Edit</h1>
+        </div>
+    
+        <div class="tweet-post">
+            <div class="my-icon">
+                <img src="{% static 'img/inu-new.png' %}" width="70" height="70">
+            </div>
+    
+            <div class="input-area">
+                <form action="/edit/{{ tweet.id }}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div>
+                        <input type="text" name="name" maxlength="20" value="{{ tweet.name }}">
+                    </div>
+    
+                    <div>
+                        <textarea name="text" maxlength="280" rows="4" cols="60" value="{{ tweet.text }}">{{ tweet.text }}</textarea>
+                    </div>
+
+                    {% if tweet.image is not Null %}
+                        <a href="{{ tweet.image.url }}">
+                            <image class="post-image" src="{{ tweet.image.url }}" style="width: 70%;
+                            height: 300px;
+                            object-fit: cover;
+                            border-radius: 15px;
+                            margin-bottom: 10px;
+                            margin-right: 5px;
+                            border: 1px solid rgb(235, 238, 240);"/>
+                        </a>
+                    {% endif %}
+
+                    <div class="bottom-area">
+                        <div class="mb-0">
+                            <input class="form-control form-control-sm" name="image" type="file">
+                        </div>
+
+                        <a href="{% url 'index' %}" button class="btn" type="submit" style="background-color: #fa6a6a;" href="#">Cancel</a>
+                        <button class="btn" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    <div class="ditch"></div>
+
+  
+</div>
+
+
+{% endblock %}

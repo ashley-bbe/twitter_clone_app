@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+{% block content %}
+
+<div class="container">
+        
+    <div class="main">
+        <div class="main-header">
+            <img src="{% static 'img/sakura-pp.png' %}" width="80" height="80">
+            <h1>Twitter Clone</h1>
+        </div>
+    
+        <div class="tweet-post">
+            <div class="my-icon">
+                <img src="{% static 'img/inu-new.png' %}" width="70" height="70">
+            </div>
+    
+            <div class="input-area">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div>
+                        <input type="text" name="name" placeholder="Your name" maxlength="20" >
+                    </div>
+    
+                    <div>
+                        <textarea name="text" placeholder="What's happening?" maxlength="280" rows="4"
+                            cols="60"></textarea>
+                    </div>
+    
+                    <div class="bottom-area">
+                        <div class="mb-0">
+                            <input class="form-control form-control-sm" name="image" type="file">
+                           
+                        </div>
+    
+                        <button class="btn btn-primary" type="submit">Tweet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    <div class="ditch"></div>
+
+{% for tweet in tweets %}
+
+    <div class="tweet-list">
+       
+        <div class="tweet">
+            <div class="user">
+                <a href="#">
+                    <img src="{% static 'img/inu.png' %}" width="70" height="70">
+                </a>
+            </div>
+        
+            <div class="content">
+
+                <div class="name">
+                        <span class="nickname">
+                            <a href="#/">{{ tweet.name }}</a> 
+                        </span>
+                        <span class="datetime">
+                            {{ tweet.created_at }}
+                        </span>
+                    <a href="#/"><img src="{% static 'img/icon-small-menu.svg' %}" class="small-menu js-popover"
+                    data-toggle="popover" 
+                    data-container="body" 
+                    data-placement="right" 
+                    data-content="<a href='/edit/{{ tweet.id }}'>Edit</a><br><a href='/delete/{{ tweet.id }}'>Delete</a>"
+                    data-bs-html="true"></a>
+                </div>
+
+                <p>
+                    {{ tweet.text }}    
+                </p>
+
+                {% if tweet.image is not Null %}
+                <a href="{{ tweet.image.url }}"  target="_blank">
+                    <image class="post-image" src="{{ tweet.image.url }}"/>
+                </a>
+                {% endif %}
+          
+                <div class="icon-list">
+                    <div class="like js-like" data-tweet-id="{{ tweet.id }}">
+                        <a href="{% url 'likeAdd' tweet.id %}"><img src="{% static 'img/sakura-black.svg' %}" style="width: 23px;
+                            margin-right: 20px; margin-bottom: 5px;"/></a>
+                        {{ tweet.like_count }}
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+{% endfor %}
+{% endblock %}
