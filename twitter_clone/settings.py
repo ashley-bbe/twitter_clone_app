@@ -16,8 +16,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-from whitenoise import WhiteNoise
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#4zahp##6*s#$=$st&8g6&nw(ka%n1hf(=!5z)g58fl4phn3ky'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0',
 'ash-twitter-clone.herokuapp.com', '127.0.0.1']
@@ -86,11 +84,11 @@ WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dacs4kujf03cms',
-        'HOST': 'ec2-18-214-195-34.compute-1.amazonaws.com',
+        'NAME': 'dbe2hjerd0v2vo',
+        'HOST': 'ec2-44-199-19-76.compute-1.amazonaws.com',
         'PORT': '5432',
-        'USER': 'oteqwrplwxgdez',
-        'PASSWORD': '9901152d4b288926d1e597a12990f83c71c6fb9149886ba6b9f8856165874266',
+        'USER': 'intnqpikjzqggs',
+        'PASSWORD': 'eebdfb5dd6c361a8462e5c0d6068ae1bba06fe8c0c97235f092871709f48e047',
     }
 }
 
