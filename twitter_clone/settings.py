@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#4zahp##6*s#$=$st&8g6&nw(ka%n1hf(=!5z)g58fl4phn3ky'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0',
 'ash-twitter-clone.herokuapp.com', '127.0.0.1']
