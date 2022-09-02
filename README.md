@@ -1,8 +1,10 @@
 # TWITTER CLONE APP
 
-This is a Twitter clone app built with Django.
+最初のプログラミングスクールのプロジェクトでした！  
+Twitterに類似した呟きが簡単に投稿できるWebアプリです。  
+Djangoのフレームワークを使用しながら、開発しました。
 
-[Live Heroku Deployment](https://ash-twitter-clone.herokuapp.com/)
+[サイトはここ](https://ash-twitter-clone.herokuapp.com/)
 
 
 [Screenshots]
@@ -15,5 +17,5 @@ This is a Twitter clone app built with Django.
 * HTML
 * CSS
 * Bootstrap
-* Django
-* Python
+* Python (Django)
+
